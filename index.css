@@ -1,0 +1,4 @@
+body { color: green; background-color: aqua; }
+
+.star { font-weight: bold; font-size: 24px; color: coral}
+.star-clicked { color: black }
