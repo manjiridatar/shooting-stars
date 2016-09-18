@@ -1,23 +1,28 @@
+var stars = document.getElementsByClassName( "star" );
 
-var stars = document.getElementsByClassName("star");
-for(var i=0; i < stars.length; i++)
-{
-    stars[i].addEventListener('click', handleClick);
+for( var i = 0; i < stars.length; i++ ) {
+    stars[ i ].addEventListener( 'click', handleClick );
 }
 
-function handleClick(event) {
+function handleClick( event ) {
+    var starClicked = event.target;
+    var found = false;
 
-    var starclicked = event.target;
+    for( var i = 0; i < stars.length; i++) {
+        if( starClicked == stars[ i ] ) {
+            found = true;
+            stars[ i ].classList.add( "star-clicked" );
 
-    for (var i=0; i<stars.length; i++){
-        stars[i].classList.remove("star-clicked");
-    }
-    for (var i=0 ; i<stars.length; i++) {
-        if (starclicked == stars[i]) {
-            stars[i].classList.add("star-clicked");
-            for(var j = 0; j<=i; j++) {
-                stars[j].classList.add("star-clicked");
+        } else {
+            if( found ) {
+                stars[ i ].classList.remove( "star-clicked" );
+
+            } else {
+                stars[ i ].classList.add( "star-clicked" );
+
             }
         }
     }
 }
+
+
